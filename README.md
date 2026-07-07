@@ -488,7 +488,7 @@ MyEconomy is lightweight and built for clean performance:
 
 ## 📝 License
 
-All rights reserved.
+MIT License - Free to modify and distribute
 
 ## 📖 Documentation
 
