@@ -1,0 +1,27 @@
+# ----- Gradle -----
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# ----- IDE -----
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# ----- Test server (run-paper) -----
+run/
+
+# ----- OS -----
+.DS_Store
+Thumbs.db
+
+# ----- Logs -----
+*.log
+
+# Project exclude paths
+/target/

@@ -1,0 +1,161 @@
+# MyEconomy Configuration
+
+# Starting balance for new players
+starting-balance: 100.0
+
+# Allow negative balance (if true, players can go below 0)
+allow-negative-balance: false
+
+# Currency settings
+currency:
+  name-singular: "Dollar"
+  name-plural: "Dollars"
+  symbol: "$"
+  format: "#,##0.00"
+
+# Vault integration (if false, uses internal SQLite database)
+vault-integration: true
+
+# Database settings (used when vault-integration is false)
+database:
+  type: "sqlite" # sqlite only for now
+  file: "economy.db"
+
+# Bank system - separate savings account for players
+bank:
+  enabled: true
+  # Starting bank balance for new players
+  starting-balance: 0.0
+  # Minimum deposit/withdraw/transfer amount
+  minimum: 1.0
+  # Maximum bank balance (0 = unlimited)
+  max-balance: 0.0
+  # Tax on bank transfers to other players (percent, 0 = no tax)
+  transfer-tax-percent: 0.0
+
+# Pay command settings
+pay:
+  minimum: 1.0
+  maximum: 1000000.0
+  tax-percent: 0.0
+  allow-self-pay: false
+
+# Withdraw (banknote) settings
+withdraw:
+  enabled: true
+  minimum: 1.0
+  maximum: 1000000.0
+  # Item material - supports Minecraft materials (PAPER, GOLD_INGOT, etc.)
+  # and custom items from plugins using namespace format (e.g. "oraxen:banknote", "itemsadder:custom_paper")
+  item-material: "PAPER"
+  # Custom model data (set to 0 to disable, useful for resource packs)
+  custom-model-data: 0
+  item-name: "&a&lBanknote &7- &f{amount}"
+  item-lore:
+    - ""
+    - "&7Value: &a{amount} {currency}"
+    - "&7Created by: &f{player}"
+    - "&7Date: &f{date}"
+    - ""
+    - "&e&lRight-click &7to deposit"
+
+# Interest system - earn passive income on your balance
+interest:
+  enabled: true
+  rate-percent: 0.5
+  interval-minutes: 60
+  max-balance-for-interest: 100000.0
+  min-balance-for-interest: 100.0
+
+# Offline growth - players earn money even when offline
+# Calculated on login based on how long they were away
+offline-growth:
+  enabled: true
+  # How often growth is applied (in minutes). E.g. every 60 = once per hour offline
+  interval-minutes: 60
+  # Percent of balance earned per interval
+  rate-percent: 0.3
+  # Maximum offline time counted (in hours). E.g. 12 = max 12 hours of growth
+  max-hours: 12
+  # Maximum total growth amount per offline session (0 = no cap)
+  max-growth: 5000.0
+  # Minimum balance required to earn offline growth
+  min-balance: 50.0
+
+# Play time rewards - earn money just for being online
+# Supports multiple tiers - players get the BEST tier they have permission for
+# Each tier has its own settings. The player receives only ONE reward (the highest tier they qualify for)
+playtime-rewards:
+  enabled: true
+  # Global interval in minutes between each reward check
+  interval-minutes: 15
+  # Tiers are checked top-to-bottom. Player gets the first tier they have permission for.
+  # Use "default" as permission for a tier that applies to everyone (fallback).
+  tiers:
+    vip-plus:
+      permission: "myeconomy.playtime.vipplus"
+      type: "percent"
+      amount: 2.0
+      min-balance: 0.0
+      max-reward: 2000.0
+    vip:
+      permission: "myeconomy.playtime.vip"
+      type: "percent"
+      amount: 1.0
+      min-balance: 0.0
+      max-reward: 1000.0
+    default:
+      permission: "default"
+      type: "percent"
+      amount: 0.5
+      min-balance: 0.0
+      max-reward: 500.0
+
+# PvP money - steal money on kill
+pvp-money:
+  enabled: true
+  # Percent of victim's balance the killer receives
+  steal-percent: 5.0
+  # Minimum amount to steal (if victim has less, nothing is stolen)
+  minimum: 1.0
+  # Maximum amount that can be stolen per kill (0 = no cap)
+  maximum: 1000.0
+  # Should the victim lose money? If false, killer gets money from thin air
+  victim-loses: true
+
+# Money notifications
+notifications:
+  # ActionBar popup when gaining/losing money (e.g. "+$1.23" or "-$20.00")
+  actionbar:
+    enabled: true
+    # How long the actionbar message stays (in ticks, 20 = 1 second)
+    duration-ticks: 60
+    gain-format: "&a+{amount}"
+    loss-format: "&c-{amount}"
+  # Offline notifications - messages queued while player is offline, shown on login
+  offline-queue:
+    enabled: true
+    # Max messages stored per player (oldest are discarded)
+    max-messages: 20
+
+# Transaction logging
+logging:
+  enabled: true
+  file: "transactions.log"
+  log-pay: true
+  log-withdraw: true
+  log-deposit: true
+  log-admin-changes: true
+  log-interest: false
+  log-playtime-rewards: false
+  log-bank: true
+  log-pvp: true
+  log-offline-growth: true
+
+# PlaceholderAPI integration
+placeholderapi: true
+
+# Balance leaderboard
+leaderboard:
+  entries: 10
+  update-interval-seconds: 300

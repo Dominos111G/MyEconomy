@@ -1,0 +1,95 @@
+# MyEconomy Language File
+
+prefix: "&8[&a&lMyEconomy&8] &7"
+
+# Balance messages
+balance:
+  self: "{prefix}&7Your balance: &a{balance} {currency}"
+  other: "{prefix}&7{player}'s balance: &a{balance} {currency}"
+  no-permission: "{prefix}&cYou don't have permission to check other players' balance."
+
+# Balance Top
+balancetop:
+  header: "&8&m─────────────────────────────────"
+  title: "  &a&lTOP {count} RICHEST PLAYERS"
+  separator: "&8&m─────────────────────────────────"
+  entry: "  &7#{rank} &f{player} &8- &a{balance} {currency}"
+  entry-self: "  &a#{rank} &e{player} &8- &a{balance} {currency}"
+  footer: "&8&m─────────────────────────────────"
+  empty: "{prefix}&7No players found."
+  your-rank: "  &7Your rank: &a#{rank}"
+
+# Pay messages
+pay:
+  success: "{prefix}&7You paid &a{amount} {currency} &7to &f{player}&7."
+  success-tax: "{prefix}&7You paid &a{amount} {currency} &7to &f{player}&7. (&cTax: {tax} {currency}&7)"
+  received: "{prefix}&f{player} &7paid you &a{amount} {currency}&7."
+  self: "{prefix}&cYou cannot pay yourself."
+  not-enough: "{prefix}&cYou don't have enough money. Balance: &f{balance} {currency}"
+  minimum: "{prefix}&cMinimum payment amount is &f{minimum} {currency}&c."
+  maximum: "{prefix}&cMaximum payment amount is &f{maximum} {currency}&c."
+  invalid-amount: "{prefix}&cPlease enter a valid amount."
+
+# Bank messages
+bank:
+  balance: "{prefix}&7Bank balance: &a{balance} {currency}"
+  deposit-success: "{prefix}&7Deposited &a{amount} {currency} &7to your bank."
+  withdraw-success: "{prefix}&7Withdrew &a{amount} {currency} &7from your bank."
+  transfer-success: "{prefix}&7Transferred &a{amount} {currency} &7to &f{player}&7's bank."
+  transfer-success-tax: "{prefix}&7Transferred &a{amount} {currency} &7to &f{player}&7's bank. (&cTax: {tax} {currency}&7)"
+  transfer-received: "{prefix}&f{player} &7transferred &a{amount} {currency} &7to your bank."
+  not-enough-wallet: "{prefix}&cNot enough money in your wallet. Balance: &f{balance} {currency}"
+  not-enough-bank: "{prefix}&cNot enough money in your bank. Bank balance: &f{balance} {currency}"
+  max-reached: "{prefix}&cBank balance would exceed the maximum of &f{max} {currency}&c."
+  minimum: "{prefix}&cMinimum amount is &f{minimum} {currency}&c."
+  disabled: "{prefix}&cBank system is currently disabled."
+  self: "{prefix}&cYou cannot transfer to yourself."
+
+# Withdraw messages
+withdraw:
+  success: "{prefix}&7You withdrew &a{amount} {currency}&7. Check your inventory!"
+  not-enough: "{prefix}&cYou don't have enough money. Balance: &f{balance} {currency}"
+  minimum: "{prefix}&cMinimum withdrawal amount is &f{minimum} {currency}&c."
+  maximum: "{prefix}&cMaximum withdrawal amount is &f{maximum} {currency}&c."
+  invalid-amount: "{prefix}&cPlease enter a valid amount."
+  inventory-full: "{prefix}&cYour inventory is full!"
+  deposited: "{prefix}&7You deposited &a{amount} {currency}&7 from a banknote."
+  deposited-stack: "{prefix}&7You deposited &a{amount} {currency}&7 from &f{count} &7banknotes."
+  disabled: "{prefix}&cWithdraw is currently disabled."
+
+# Admin messages
+admin:
+  set: "{prefix}&7Set &f{player}&7's balance to &a{amount} {currency}&7."
+  change-add: "{prefix}&7Added &a{amount} {currency} &7to &f{player}&7's balance. New: &a{new_balance} {currency}"
+  change-remove: "{prefix}&7Removed &c{amount} {currency} &7from &f{player}&7's balance. New: &a{new_balance} {currency}"
+  reload: "{prefix}&aConfiguration reloaded successfully."
+  no-permission: "{prefix}&cYou don't have permission to do this."
+
+# Interest messages
+interest:
+  received: "{prefix}&7You earned &a{amount} {currency} &7in interest!"
+
+# Playtime reward messages
+playtime:
+  received: "{prefix}&7You earned &a{amount} {currency} &7for playing! &8(&7{tier}&8)"
+
+# Offline growth messages
+offline-growth:
+  received: "{prefix}&7While you were away you earned &a{amount} {currency} &7in offline growth! &8(&7{hours}h offline&8)"
+
+# PvP messages
+pvp:
+  killer-gained: "{prefix}&7You stole &a{amount} {currency} &7from &f{victim}&7!"
+  victim-lost: "{prefix}&c{killer} &7stole &c{amount} {currency} &7from you!"
+
+# Offline notification header
+offline-notifications:
+  header: "{prefix}&e&lWhile you were offline:"
+  footer: "{prefix}&7&o({count} notification(s))"
+
+# General messages
+general:
+  player-not-found: "{prefix}&cPlayer &f{player} &cnot found."
+  player-only: "{prefix}&cThis command can only be used by players."
+  usage: "{prefix}&cUsage: &f{usage}"
+  no-permission: "{prefix}&cYou don't have permission to do this."

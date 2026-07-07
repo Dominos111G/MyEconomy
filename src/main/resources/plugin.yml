@@ -1,0 +1,59 @@
+name: MyEconomy
+version: ${project.version}
+main: pl.szczerbal.myeconomy.MyEconomy
+api-version: '1.20'
+description: A feature-rich economy plugin
+author: Dominos111G
+softdepend:
+  - Vault
+  - PlaceholderAPI
+
+commands:
+  balance:
+    description: Check your or another player's balance
+    usage: /balance [player]
+    aliases:
+      - bal
+  balancetop:
+    description: View the top 10 richest players
+    usage: /balancetop
+    aliases:
+      - baltop
+  pay:
+    description: Pay another player
+    usage: /pay <player> <amount>
+  withdraw:
+    description: Withdraw money as a physical banknote
+    usage: /withdraw <amount>
+  bank:
+    description: Bank account management
+    usage: /bank [deposit|withdraw|transfer] [amount|player]
+  myeconomy:
+    description: Admin economy management
+    usage: /myeconomy <set|change|reload>
+
+permissions:
+  myeconomy.balance:
+    description: Check your own balance
+    default: true
+  myeconomy.balance.others:
+    description: Check other players' balance
+    default: true
+  myeconomy.balancetop:
+    description: View balance leaderboard
+    default: true
+  myeconomy.pay:
+    description: Pay other players
+    default: true
+  myeconomy.withdraw:
+    description: Withdraw money as banknote
+    default: true
+  myeconomy.bank:
+    description: Use bank system
+    default: true
+  myeconomy.bank.transfer:
+    description: Transfer money between bank accounts
+    default: true
+  myeconomy.admin:
+    description: Admin economy commands
+    default: op
